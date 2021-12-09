@@ -1,0 +1,9 @@
+NUMA_BAL=0
+THP=always
+NPS = 2
+
+BENCHES=copy daxpy ddot load stream sum triad update
+POSTFIX=_avx512
+FOLDER=casclakesp2_results
+CLOCK=2.2
+END_SIZE=800000
