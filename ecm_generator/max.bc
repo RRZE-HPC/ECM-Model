@@ -1,0 +1,9 @@
+
+define max(x, y) {
+    if(x > y)
+    {
+        return x;
+    }
+    return y;
+}
+
