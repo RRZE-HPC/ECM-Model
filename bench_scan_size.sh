@@ -7,7 +7,7 @@ postfix=`cat $1 | grep POSTFIX | cut -d "=" -f 2-`
 folder=`cat $1 | grep FOLDER | cut -d "=" -f 2-`
 rawFolder="${folder}/raw"
 clock=`cat $1 | grep CLOCK | cut -d "=" -f 2-`
-tmpFile="tmp.txt"
+tmpFile="${folder}/tmp.txt"
 endSize=`cat $1 | grep END_SIZE | cut -d "=" -f 2-`
 
 #TODO check freq also in check-state

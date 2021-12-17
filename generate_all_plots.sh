@@ -15,11 +15,16 @@ for kernel in ${kernels}; do
     kernel_name=$(basename "${kernel_name_tmp}" ".config")
     kernel_wo_simdType=$(echo ${kernel_name%%_*})
     curPath=${PWD}
-    echo "check $kernel_name"
-    cd ecm_generator
-    ./ecm.sh "application_model/${kernel_wo_simdType}.config" "machine_model/${mc_name}.config" > ${curPath}/ecm_tmp.tmp
-    cd -
-    ./generate_plot.sh ${kernel_name} ${folder}
+    template="template_wo_ecm.tex"
+    echo "generating plots for $kernel_name"
+    if [[ ${mc_name} != -1 ]]; then
+        cd ecm_generator
+        ./ecm.sh "application_model/${kernel_wo_simdType}.config" "machine_model/${mc_name}.config" > ${curPath}/ecm_tmp.tmp
+        cd -
+        template="template_w_ecm.tex"
+    fi
+    echo $template
+    ./generate_plot.sh ${kernel_name} ${folder} ${template}
     rm -f ${curPath}/ecm_tmp.tmp
 done
 

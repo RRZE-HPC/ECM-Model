@@ -1,5 +1,6 @@
 kernel=$1
 folder=$2
+template=$3
 #cd ../ecm_generator
 #./ecm_mem_r_no_op.sh ${kernel}
 #./ecm.sh ${kernel}
@@ -7,7 +8,7 @@ folder=$2
 outFolder="${folder}/plots"
 mkdir -p ${outFolder}
 outFile="${outFolder}/${kernel}.tex"
-cp template.tex "tmp.tex"
+cp ${template} "tmp.tex"
 sed -e "s#@kernel@#${kernel}#g" "tmp.tex" > "tmp_tmp.tex"
 kernel_title=$(echo ${kernel} | sed -e "s#_#-#g")
 sed -e "s#@title@#${kernel_title}#g" "tmp_tmp.tex" > "${outFile}"
@@ -16,5 +17,6 @@ rm -rf "tmp_tmp.tex"
 mv ecm_tmp.tmp ${outFolder}/.
 cd ${outFolder}
 pdflatex "${kernel}.tex"
+rm ecm_tmp.tmp
 rm -rf *.aux *.log *.synctex.gz
 cd -
