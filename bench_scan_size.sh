@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#Usage ./bench_scan_size.sh <config_file>
+
 #benches="load_avx512 load copy_avx512 copy_mem_avx512 copy daxpy_avx512_fma stream_avx512_fma stream_mem_avx512 triad_avx512_fma triad_mem_avx512_fma update_avx512"
 benches=`cat $1 | grep BENCHES | cut -d "=" -f 2-`
 postfix=`cat $1 | grep POSTFIX | cut -d "=" -f 2-`

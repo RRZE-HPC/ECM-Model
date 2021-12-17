@@ -1,9 +1,0 @@
-NUMA_BAL=0
-THP=always
-NPS = 1
-
-BENCHES=copy daxpy ddot load stream sum triad update
-POSTFIX=_avx
-FOLDER=rome1_avx_results
-CLOCK=2.0
-END_SIZE=2000000
