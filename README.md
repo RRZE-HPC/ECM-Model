@@ -64,5 +64,10 @@ The generation of ECM model (2.3) need not be done manually as indicated here an
 
 ## Step 3: Plotting results
 The script `./generate_all_plots.sh` runs ecm script `ecm_generator/ecm.sh` (2.3) and collects the performance measurements collected in Step 1 to generate final plots. 
-The plots are generated in the a folder called `plots` located in the same directory where the performance measurement results are collected (Step 1), which is configured using the machine configuration file defined in Step 1. 
-Plots (in pdf format) for different benchmarks run as well as an overall compiled plot called `ecm.pdf` coulld be found in the `plots` directory.
+The script requires the location of folder where performance measurements are collected (as specified through configuration file in Step 1) and the machine name to identify the corresponding machine model.
+For example to plot the results collected in `results/casclakesp2/nps2/avx512/` with the ECM model corresponding to machine model file `ecm_generator/machine_model/casclakesp2_nps2.config`, the following command should be used:
+```
+./generate_all_plots.sh results/casclakesp2/nps2/avx512/ casclakesp2_nps2
+```
+The plots are then generated in a folder called `plots` located in the same directory given in the input.
+Plots (in pdf format) for different benchmarks as well as an overall compiled plot called `ecm.pdf` could be found in the `plots` directory.
