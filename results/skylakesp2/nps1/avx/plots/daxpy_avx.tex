@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{scaled x ticks=false}
+
+\begin{document}
+\begin{tikzpicture}%[y=.2cm, x=.7cm]%,font=\sffamily]
+    \centering
+    \begin{axis}[
+            %%scale only axis,
+            height=12cm,
+        width=12cm,
+        grid=both,
+        tick align=inside,
+        %%enlarge y limits={value=.1,upper},
+        %%axis x line*=bottom,
+        %%axis y line*=left,
+        %%y axis line style={opacity=0},
+        %tickwidth=0pt,
+        %enlarge x limits=true,
+        xlabel={Size (kB)},
+        %ylabel={Effective Bandwidth [GB/s]},
+        ylabel={Performance (cy/CL)},
+        xmode=log,
+        %ylabel={Effective BW [GB/s]},
+        %%%%%%xlabel style={},
+        %%%%%%ylabel style={},
+        %%%%%%x tick label style={},
+        %%%%%%y tick label style={},
+        %minor x tick num = 7,
+        xmin=1,
+        %xmax=50,
+        ymin=0,
+        %ymax=5,
+        %xtick = {0,2500,5000,7500,10000},
+        %xticklabels = {0,2500,5000,7500,10000},
+        %ytick = {0,1,2,3,4,5},
+        %x tick label style={font={\small}},
+        %x tick label style={rotate=30, anchor=north east, inner sep=0mm, font={\normalsize}},
+        %ytick = {0, 25, 50, 75, 100, 125, 150},
+        %ytick = {0,20,40,60,80,100,120,140},
+        legend pos=north east,
+        title=daxpy-avx
+    ]
+        \addplot[black,  mark=*, thick, mark size=1pt] table[x
+        expr=\thisrowno{0}, y expr=\thisrowno{5}*8, header=true, col sep=comma]
+        {../daxpy_avx.txt};
+        \addlegendentry{Measured}
+
+        \addplot[red,  mark=none, thick, mark size=1pt] table[x
+        expr=\thisrowno{0}, y expr=\thisrowno{1}, header=true, col sep=comma]
+        {ecm_tmp.tmp};
+        \addlegendentry{ECM}
+
+    \end{axis}
+
+\end{tikzpicture}
+
+\end{document}

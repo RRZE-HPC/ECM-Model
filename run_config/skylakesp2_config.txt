@@ -1,0 +1,9 @@
+NUMA_BAL=0
+THP=always
+NPS = 2
+
+BENCHES=copy daxpy ddot stream sum triad update load load2 load4 store store2 store4
+POSTFIX=avx512 avx
+FOLDER=results/skylakesp2/nps1/
+CLOCK=2.2
+END_SIZE=6000000

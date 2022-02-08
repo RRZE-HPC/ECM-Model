@@ -1,9 +1,0 @@
-NUMA_BAL=0
-THP=always
-NPS = 2
-
-BENCHES=copy daxpy ddot load stream sum triad update
-POSTFIX=_avx512
-FOLDER=results/icx36/nps2/avx512
-CLOCK=1.8
-END_SIZE=6000000

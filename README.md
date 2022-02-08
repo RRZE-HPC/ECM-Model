@@ -12,12 +12,12 @@ Knowledge base how to setup the ECM model inputs
 # Workflow
 ## Step 1: Running benchmarks
 The script `./bench_scan_size.sh` has to be used to run the benchmark and collect the performance results.
-The script takes in a machine configuration file which defines the `likwid-bench` benchmarks to be runs, the result folders and hardware settings.
-Some sample configuration files can be found in the `machine_config` folder.
+The script takes in a run configuration file which defines the `likwid-bench` benchmarks to be runs, the result folders and hardware settings.
+Some sample configuration files can be found in the `run_config` folder.
 The benchmark runs streaming kernels with different stream/array size.
-For example to run with the settings in `machine_config/casclakesp2_config.txt` file the following can be used:
+For example to run with the settings in `run_config/casclakesp2_config.txt` file the following can be used:
 ```
-/bench_scan_size.sh machine_config/casclakesp2_config.txt
+/bench_scan_size.sh run_config/casclakesp2_config.txt
 ```
 
 NB: If some basic performance relevant hardware configuration is not set as described in the config file, the script will 
@@ -64,10 +64,10 @@ The generation of ECM model (2.3) need not be done manually as indicated here an
 
 ## Step 3: Plotting results
 The script `./generate_all_plots.sh` runs ecm script `ecm_generator/ecm.sh` (2.3) and collects the performance measurements collected in Step 1 to generate final plots. 
-The script requires the location of folder where performance measurements are collected (as specified through configuration file in Step 1) and the machine name to identify the corresponding machine model.
-For example to plot the results collected in `results/casclakesp2/nps2/avx512/` with the ECM model corresponding to machine model file `ecm_generator/machine_model/casclakesp2_nps2.config`, the following command should be used:
+The script requires the location of folder where performance measurements are collected (as specified through configuration file in Step 1) and the machine file corresponding to the machine model.
+For example to plot the results collected in `results/casclakesp2/nps2/avx512/` with the ECM model corresponding to machine file `ecm_generator/machine_model/casclakesp2/nps2/avx512/casclakesp2_nps2_avx512.config`, the following command should be used:
 ```
-./generate_all_plots.sh results/casclakesp2/nps2/avx512/ casclakesp2_nps2
+./generate_all_plots.sh results/casclakesp2/nps2/avx512/ ecm_generator/machine_model/casclakesp2/nps2/avx512/casclakesp2_nps2_avx512.config
 ```
-The plots are then generated in a folder called `plots` located in the same directory given in the input.
+The plots are then generated in a folder called `plots` located in the same directory given in the input (`results/casclakesp2/nps2/avx512/` in above example).
 Plots (in pdf format) for different benchmarks as well as an overall compiled plot called `ecm.pdf` could be found in the `plots` directory.

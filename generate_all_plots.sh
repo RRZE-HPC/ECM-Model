@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#USAGE: ./generate_all_plots.sh ${folder_with_Results} ${mcName}
+#USAGE: ./generate_all_plots.sh ${folder_with_Results} ${mc_file}
 
 #kernels="load load2 load4 init init2 init4 copy daxpy stream triad"
 #kernels=$(ls ../size_scan)
 
 folder=$1
-mc_name=$2
+mc_file=$2
 cd ${folder}
 kernels=$(ls *.txt)
 cd -
@@ -17,9 +17,10 @@ for kernel in ${kernels}; do
     curPath=${PWD}
     template="template_wo_ecm.tex"
     echo "generating plots for $kernel_name"
-    if [[ ${mc_name} != -1 ]]; then
+    fullPath_mcFile=$(realpath "${mc_file}")
+    if [[ ${mc_file} != -1 ]]; then
         cd ecm_generator
-        ./ecm.sh "application_model/${kernel_wo_simdType}.config" "machine_model/${mc_name}.config" > ${curPath}/ecm_tmp.tmp
+        ./ecm.sh "application_model/${kernel_wo_simdType}.config" "${fullPath_mcFile}" > ${curPath}/ecm_tmp.tmp
         cd -
         template="template_w_ecm.tex"
     fi

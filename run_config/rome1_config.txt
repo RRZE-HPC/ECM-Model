@@ -1,0 +1,9 @@
+NUMA_BAL=0
+THP=always
+NPS = 4
+
+BENCHES=copy daxpy ddot stream sum triad update load load2 load4 store store2 store4
+POSTFIX=avx
+FOLDER=results/rome1/nps4/
+CLOCK=2.0
+END_SIZE=6000000
