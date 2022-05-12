@@ -1,0 +1,12 @@
+{% if page.url contains "machines" %}
+<!--todo-->
+
+{% else %}
+
+{% capture link_text %}{{page.title}}{% endcapture %}
+
+{% endif %}
+
+<div id="navbar">
+<a href="{{link_url}}">{{link_text}}</a>
+</div>

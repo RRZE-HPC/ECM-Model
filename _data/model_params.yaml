@@ -1,0 +1,48 @@
+in-core:
+  names:
+   - "Micro architecture"
+    #####
+   - "TP<sub>ADD</sub>"
+   - "TP<sub>MUL</sub>"
+   - "TP<sub>FMA</sub>"
+   - "DP ADDs/cy"
+   - "DP MULs/cy"
+   - "DP FMAs/cy"
+    #####
+   - "TP<sub>LD</sub>"
+   - "TP<sub>ST</sub>"
+   - "TP<sub>LD/ST</sub>"
+   - "DP LD<sub>L1</sub>/cy"
+   - "LAT<sub>L1</sub>"
+  keys:
+   - name
+    #####
+   - tp_add
+   - tp_mul
+   - tp_fma
+   - dp_add_per_cy
+   - dp_mul_per_cy
+   - dp_fma_per_cy
+    #####
+   - tp_ld
+   - tp_st
+   - tp_ldst
+   - dp_ld_l1_per_cy
+   - lat_ld_l1
+memory:
+  names:
+   - "Micro architecture"
+   - "b<sub>L1&harr;L2</sub> [B/cy]"
+   - "b<sub>L2&harr;L3</sub> [B/cy]"
+   - "b<sub>&harr;Mem</sub> [B/cy]"
+   - "Data-transfer penalties"
+   - "Non-overlapping transfers"
+   - "Write-through/victim caches"
+  keys:
+   - name
+   - b_l1_l2
+   - b_l2_l3
+   - b_mem
+   - data_penalties
+   - non_ovlp_transfers
+   - wt_victim

@@ -1,0 +1,18 @@
+name: "Intel Skylake SP Gold 6148 (SKX)"
+tp_add: 2
+tp_mul: 2
+tp_fma: 2
+dp_add_per_cy: 16
+dp_mul_per_cy: 16
+dp_fma_per_cy: 16
+tp_ld: 2
+tp_st: 1
+tp_ldst: "2 (1 LD + 1 ST)"
+dp_ld_l1_per_cy: 16
+lat_ld_l1: 4
+b_l1_l2: 64
+b_l2_l3: 32
+b_mem: "25-28"
+data_penalties: "--"
+non_ovlp_transfers: "all"
+wt_victim: "Victim L3"
