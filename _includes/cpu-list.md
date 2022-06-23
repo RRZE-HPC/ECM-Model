@@ -19,7 +19,7 @@
 
 <div markdown="1" id="in-core-table">
 
-### Processors 
+# Processors 
 <p>
 <i class='fa fa-microchip'></i>
 </p>
