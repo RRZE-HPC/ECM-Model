@@ -1,0 +1,20 @@
+{
+  "name": "Intel Icelake SP Platinum 8360Y (ICX)",
+  "tp_add": 2,
+  "tp_mul": 2,
+  "tp_fma": 1,
+  "dp_add_per_cy": 16,
+  "dp_mul_per_cy": 16,
+  "dp_fma_per_cy": 32,
+  "tp_ld": 2,
+  "tp_st": 2,
+  "tp_ldst": "4 (2 LD + 2 ST)",
+  "dp_ld_l1_per_cy": 16,
+  "lat_ld_l1": 5,
+  "b_l1_l2": 64,
+  "b_l2_l3": 16,
+  "b_mem": "59-76",
+  "data_penalties": "--",
+  "non_ovlp_transfers": "all",
+  "wt_victim": "Victim L3"
+}
