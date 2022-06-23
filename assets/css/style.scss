@@ -494,12 +494,8 @@ section ul ul {
 }
 
 section ul {
-  list-style-type: none;
+  list-style-type: "» ";
   list-style-image: none;
-}
-
-section ul li:before {
-  content: "» ";
 }
 
 nav {
