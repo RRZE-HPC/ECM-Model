@@ -1,0 +1,19 @@
+STREAMS 4
+TYPE DOUBLE
+FLOPS 0
+BYTES 32
+DESC Double-precision store with four streams, optimized for AVX
+LOADS 0
+STORES 4
+INSTR_CONST 20
+INSTR_LOOP 7
+UOPS 10
+vmovaps ymm1, [rip+SCALAR]
+vmovaps ymm2, [rip+SCALAR]
+vmovaps ymm3, [rip+SCALAR]
+vmovaps ymm4, [rip+SCALAR]
+LOOP 4
+vmovaps    [STR0 + GPR1 * 8], ymm1
+vmovaps    [STR1 + GPR1 * 8], ymm2
+vmovaps    [STR2 + GPR1 * 8], ymm3
+vmovaps    [STR3 + GPR1 * 8], ymm4

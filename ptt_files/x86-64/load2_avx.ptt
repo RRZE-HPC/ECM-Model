@@ -1,0 +1,13 @@
+STREAMS 2
+TYPE DOUBLE
+FLOPS 0
+BYTES 16
+DESC Double-precision load with two streams, optimized for AVX
+LOADS 2
+STORES 0
+INSTR_CONST 16
+INSTR_LOOP 7
+UOPS 6
+LOOP 4
+vmovaps    ymm1, [STR0 + GPR1 * 8]
+vmovaps    ymm2, [STR1 + GPR1 * 8]
